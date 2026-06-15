@@ -1,0 +1,9 @@
+{
+  "name": "TrashTalk",
+  "description": "An AI-powered civic intelligence platform that empowers citizens to report illegal garbage dumping and track municipal cleanup efforts in Mandya District, Karnataka.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
