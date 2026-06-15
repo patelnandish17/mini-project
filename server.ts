@@ -956,9 +956,14 @@ async function initializeServer() {
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`TrashTalk Engine Server booting successfully on http://0.0.0.0:${PORT}`);
-  });
+  // Only start the port-based listener if we are not in a serverless environment (e.g., Vercel)
+  if (!process.env.VERCEL) {
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`TrashTalk Engine Server booting successfully on http://0.0.0.0:${PORT}`);
+    });
+  }
 }
 
 initializeServer();
+
+export default app;
