@@ -164,6 +164,32 @@ function toAdminRow(admin: { email: string; passwordHash: string }): any {
   };
 }
 
+export interface AgriSoilImpact {
+  riskScore: number; // 1-5
+  cropSafetyThreat: 'Low' | 'Medium' | 'High' | 'Severe';
+  soilPathogensDetails: string;
+  remediationAction: string;
+  promptsShowcase?: string;
+  completionTimeMs?: number;
+}
+
+export interface HydrologicalWaterImpact {
+  contaminationScore: number; // 1-5
+  canalBlockageRisk: boolean;
+  drainageRiskDetails: string;
+  livestockDangerLevel: 'Safe' | 'Low' | 'Moderate' | 'High';
+  promptsShowcase?: string;
+  completionTimeMs?: number;
+}
+
+export interface CivicOfficerImpact {
+  legalSlaDays: number;
+  karnatakaCodeViolation: string;
+  recommendingAction: string;
+  promptsShowcase?: string;
+  completionTimeMs?: number;
+}
+
 export interface Citizen {
   name: string;
   email: string;
@@ -177,6 +203,9 @@ export interface LocationInfo {
   address: string;
   ward: string;
   city: string;
+  agriSoilImpact?: AgriSoilImpact;
+  hydrologicalWaterImpact?: HydrologicalWaterImpact;
+  civicOfficerImpact?: CivicOfficerImpact;
 }
 
 export interface TimelineEvent {
